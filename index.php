@@ -1,9 +1,9 @@
 <?php 
 include("./sistema/database.php");
-if(!isset($_SERVER['HTTPS']))
-  {
-   echo"<script> window.location.href='https://".$_SERVER['HTTP_HOST']."' </script>";
-  }
+//if(!isset($_SERVER['HTTPS']))
+ // {
+  // echo"<script> window.location.href='https://".$_SERVER['HTTP_HOST']."' </script>";
+//  }
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ if(!isset($_SERVER['HTTPS']))
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
     <link href='./sweetalert/dist/sweetalert.css' rel='stylesheet' />
-    
+
 
 
     <!-- Css Files End -->
@@ -84,7 +84,7 @@ if(!isset($_SERVER['HTTPS']))
                     </div>
                     <div class="col-md-2 col-sm-4 col-xs-12">
                         <div class="info_box">
-                            <a href="https://web.whatsapp.com/send?phone=5531995945030&text=Oi">
+                            <a href="https://api.whatsapp.com/send?phone=5531995945030&text=Oi">
                                 <i class="fab fa-whatsapp"></i>
                                 <div class="info_text">
                                     <span class="info_title">Whatsapp</span>
@@ -154,7 +154,7 @@ if(!isset($_SERVER['HTTPS']))
                                     Usados!</strong>
                                 <h2>Usados Trediesel/VDL</h2>
                                 <div class="banner-btns">
-                                    <a href="https://web.whatsapp.com/send?phone=5531995945030&text=Oi" class="btn-style-1"><i class="fa fa-phone"></i> Entre em Contato</a>
+                                    <a href="https://api.whatsapp.com/send?phone=5531995945030&text=Oi" class="btn-style-1"><i class="fa fa-phone"></i> Entre em Contato</a>
                                 </div>
                             </div>
                         </div>
@@ -294,7 +294,23 @@ $imagem = $imagens->fetch(PDO::FETCH_ASSOC);
     $('.owl-carousel').owlCarousel({
         margin: 10,
         loop: true,
-        items: 3
+        items: 3,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true
+            },
+            600: {
+                items: 3,
+                nav: false
+            },
+            1000: {
+                items: 3,
+                nav: true,
+                loop: false
+            }
+        }
     })
     </script>
     <!--Wrapper Content End-->
@@ -313,29 +329,28 @@ $imagem = $imagens->fetch(PDO::FETCH_ASSOC);
     <script src="./sweetalert/dist/sweetalert.min.js"></script>
     <!-- Js Files End -->
     <script>
-        // this is the id of the form
-        $("#formEnviaEmail").submit(function(e) {
-            e.preventDefault(); // avoid to execute the actual submit of the form.
-            $.ajax({
-                type: "POST",
-                url: "./enviaEmail.php",
-                data: $("#formEnviaEmail").serialize(),
-                beforeSend: function () {
-                    $(".loader-outer").css("display","block");
-                    $(".tj-loader").css("display","block");
-                },
-                success: function (data) {
-                    $("#returnMessageForm").html(data);
-                    $(".loader-outer").css("display","none");
-                    $(".tj-loader").css("display","none");
-                },
-                error: function ()
-                {
-                    $(".loader-outer").css("display","none");
-                    $(".tj-loader").css("display","none");
-                }
-            });
+    // this is the id of the form
+    $("#formEnviaEmail").submit(function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        $.ajax({
+            type: "POST",
+            url: "./enviaEmail.php",
+            data: $("#formEnviaEmail").serialize(),
+            beforeSend: function() {
+                $(".loader-outer").css("display", "block");
+                $(".tj-loader").css("display", "block");
+            },
+            success: function(data) {
+                $("#returnMessageForm").html(data);
+                $(".loader-outer").css("display", "none");
+                $(".tj-loader").css("display", "none");
+            },
+            error: function() {
+                $(".loader-outer").css("display", "none");
+                $(".tj-loader").css("display", "none");
+            }
         });
+    });
     </script>
 </body>
 
