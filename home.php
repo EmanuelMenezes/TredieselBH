@@ -72,7 +72,7 @@ include("./sistema/database.php");
     <div class="banner row justify-content-center">
         <div class="col-lg-7 title myWhite">
             <h1 style="text-transform: uppercase;">
-                Trediesel VDL
+                Trediesel bh
             </h1>
             <h4>
                 Uma parceria que visa atender os clientes com os melhores critérios de
