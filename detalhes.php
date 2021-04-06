@@ -8,6 +8,7 @@ $veiculo = $_GET['id'];
             $quant = $veiculos['quant_img'];
             $imagens = $conn->prepare("SELECT * FROM imagens WHERE fk_veiculo = ?");
             $imagens->execute(array($veiculo));
+            $i = 0;
 
 
 ?>
@@ -21,16 +22,10 @@ $veiculo = $_GET['id'];
     <title>Trediesel e VDL - Seminovos</title>
 
     <!-- Css Files Start -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/fontawesome-all.min.css" rel="stylesheet">
-    <link id="switcher" href="css/color.css" rel="stylesheet">
-    <link href="css/color-switcher.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/myStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/icomoon.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <script src="js/jquery-1.12.5.min.js"></script>
 
 
@@ -46,308 +41,199 @@ $veiculo = $_GET['id'];
 </head>
 
 <body>
-    <!--Wrapper Content Start-->
-    <div class="tj-wrapper">
-        <div class="loader-outer">
-            <div class="tj-loader">
-                <img src="images/pre-loader.gif" alt="">
-                <h2></h2>
+
+    <div class="row stripe bgMyBlack myWhite">
+        <div class="col-4">
+            <div class="info-group">
+                <a href="https://api.whatsapp.com/send?phone=5531995945030&text=Oi">
+                    <i class="fab fa-whatsapp-square"></i>
+                    <span>Fale Conosco</span>
+                </a>
             </div>
         </div>
+        <div class="col-4">
+            <div class="info-group">
+                <a href="index.php">
+                    <i class="fas fa-home"></i>
+                    <span>Voltar ao Início</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="info-group">
+                <a href="estoque.php">
+                    <i class="fas fa-truck"></i>
+                    <span>Nosso Estoque</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
-        <header class="tj-header">
-            <!--Header Content Start-->
-            <div class="container">
-                <div class="row">
-                    <!--Toprow Content Start-->
-                    <div class="col-md-3 col-sm-4 col-xs-12">
-                        <!--Logo Start-->
-                        <div class="tj-logo" style="display:inline">
-                            <img src="./images/tredvdl.svg" alt="Trediesel e VDL">
-                        </div>
-                        <!--Logo End-->
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-12">
-                        <div class="info_box">
-                            <i class="fa fa-home"></i>
-                            <div class="info_text">
-                                <span class="info_title">Endereço</span>
-                                <span>Av. Amazonas, 8787 </br> Belo Horizonte</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="info_box">
-                            <i class="fa fa-envelope"></i>
-                            <div class="info_text">
-                                <span class="info_title">Email</span>
-                                <span><a href="mailto:departamentoseminovos@gmail.com">departamentoseminovos@gmail.com</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-4 col-xs-12">
-                        <div class="info_box">
-                            <a href="https://web.whatsapp.com/send?phone=5531995945030&text=Oi">
-                                <i class="fab fa-whatsapp"></i>
-                                <div class="info_text">
-                                    <span class="info_title">Whatsapp</span>
-                                    <span>Fale Conosco</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!--Toprow Content End-->
-                </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <h3 style="text-transform: uppercase;margin-top:25px"><?=$veiculos['nome_veiculo']?></h3>
+
             </div>
 
-            <div class="tj-nav-row">
-                <div class="container">
-                    <div class="row">
-                        <!--Nav Holder Start-->
-                        <div class="tj-nav-holder">
-                            <!--Menu Holder Start-->
-                            <nav class="navbar navbar-default">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tj-navbar-collapse" aria-expanded="false">
-                                        <span class="sr-only">Menu</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-                                <!-- Navigation Content Start -->
-                                <div class="collapse navbar-collapse" id="tj-navbar-collapse">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="index.php">Início</a></li>
-                                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresa<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="services.html">Quem Somos</a></li>
-                                                <li><a href="services.html">Localização</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="index.php">Estoque</a></li>
-                                        </li>
-                                        <li> <a href="#">Avaliação</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact.html">Contato</a>
-                                        </li>
+        </div>
+    </div>
+    <style>
+    /* Position the image container (needed to position the left and right arrows) */
+    .container {
+        position: relative;
+    }
 
-                                    </ul>
-                                </div>
-                                <!-- Navigation Content Start -->
-                            </nav>
-                            <!--Menu Holder End-->
-                            <div class="book_btn">
-                                <a href="contact.html">Nosso Estoque <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <!--Nav Holder End-->
-                    </div>
-                </div>
-            </div>
+    /* Hide the images by default */
+    .mySlides {
+        display: none;
+    }
 
-        <!--Fleet Section Start-->
-        <!-- Container for the image gallery -->
-        <style>
-        /* Position the image container (needed to position the left and right arrows) */
-        .container {
-            position: relative;
-        }
+    /* Add a pointer when hovering over the thumbnail images */
+    .cursor {
+        cursor: pointer;
+    }
 
-        /* Hide the images by default */
-        .mySlides {
-            display: none;
-        }
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+    }
 
-        /* Add a pointer when hovering over the thumbnail images */
-        .cursor {
-            cursor: pointer;
-        }
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
 
-        /* Next & previous buttons */
-        .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 40%;
-            width: auto;
-            padding: 16px;
-            margin-top: -50px;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            -webkit-user-select: none;
-        }
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
 
-        /* Position the "next button" to the right */
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
 
-        /* On hover, add a black background color with a little bit see-through */
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+    /* Container for image text */
+    .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+    }
 
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 
-        /* Container for image text */
-        .caption-container {
-            text-align: center;
-            background-color: #222;
-            padding: 2px 16px;
-            color: white;
-        }
+    /* Six columns side by side */
+    .column {
+        float: left;
+        width: 16.66%;
+    }
 
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+    /* Add a transparency effect for thumnbail images */
+    .demo {
+        opacity: 0.6;
+    }
 
-        /* Six columns side by side */
-        .column {
-            float: left;
-            width: 16.66%;
-        }
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
+    </style>
 
-        /* Add a transparency effect for thumnbail images */
-        .demo {
-            opacity: 0.6;
-        }
+    <div class="container row justify-content-center" style="margin-top:50px;">
 
-        .active,
-        .demo:hover {
-            opacity: 1;
-        }
-        </style>
-        <div class="container" style="margin-top:100px;">
+        <div class="col-md-6 col-sm-6 no-padr">
 
-            <section class="tj-form-map">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 no-padr">
-                            <?php 
+
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <?php 
+                    $i=0;
+                                $imagens = $conn->prepare("SELECT * FROM imagens WHERE fk_veiculo = ?");
+                                $imagens->execute(array($veiculo));
             while($imagem = $imagens->fetch(PDO::FETCH_ASSOC)){
-                ?>
-                            <div class="mySlides" style="height: 380px; background-image: url('images/<?=$imagem['nome_arquivo']?>'); background-position: center center">
-                            </div>
-                            <?php
-            }
-        ?>
-                            <!-- Next and previous buttons -->
-                            <a class="prev" onclick="plusSlides(-1);">&#10094;</a>
-                            <a class="next" onclick="plusSlides(1);">&#10095;</a>
+                if($i == 0){
+                    ?>
+                    <div class="carousel-item active" style="background-image:url('images/<?=$imagem['nome_arquivo']?>');">
 
-                            <!-- Image text -->
-
-                        </div>
-                        <div class="col-md-6 col-sm-6 no-padl">
-                            <div class="form-box">
-                                <div class="form_desc">
-                                    <h3><?=$veiculos['nome_veiculo']?></h3>
-                                </div>
-
-                                <ul class="cab-meta">
-                                    <li><i class="fas fa-calendar"></i> Ano/Modelo: <strong><?=$veiculos['ano']?>/<?=$veiculos['modelo']?></strong></li>
-                                    <li><i class="fa fa-truck"></i> Tipo de Carroceria: <strong><?=$veiculos['carroceria']?></strong></li>
-                                    <li><i class="fas fa-tachometer-alt"></i> Quilometragem: <strong><?=$veiculos['km']?>km</strong></li>
-                                    <li><i class="fas fa-cogs"></i> Tipo de Eixo: <strong><?=$veiculos['eixo']?></strong></li>
-                                </ul>
-                                <textarea name="message" id="send_msg" ><?=$veiculos['observacoes']?></textarea>
-                                <form method="POST" class="contact_frm">
-                                    <div class="frm-field">
-
-                                    </div>
-                                    <a href="https://web.whatsapp.com/send?phone=5531995945030&text=Oi, tenho interesse no veículo *<?=$veiculos['nome_veiculo']?>*" target="_blank" class="submit-btn">Tenho interesse <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                                </form>
-                            </div>
-                        </div>
                     </div>
+                    <?php
+                   $i++;   } else{
+                   ?>
+
+                    <div class="carousel-item " style="background-image:url('images/<?=$imagem['nome_arquivo']?>');">
+
+                    </div>
+
+                    <?php  }}  ?>
                 </div>
-            </section>
-
-            <!-- Full-width images with number text -->
-
-            <!-- Thumbnail images -->
-        </div>
-        <!--Footer Content Start-->
-        <section class="tj-footer2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <ul class="fsocial-links">
-                            <li><a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="copyright_text">
-                            <p>&copy; Copyrights 2021 Todos os direitos reservados.</p>
-                        </div>
-                    </div>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-        </section>
-        <!--Footer Content End-->
+        </div>
+        <div class="col-md-6 col-sm-6 no-padl">
+            <div class="form-box">
+                <div class="form_desc">
+                    <h3></h3>
+                </div>
+                <i style="margin:10px" class="fas fa-calendar"></i> Ano/Modelo: <strong><?=$veiculos['ano']?>/<?=$veiculos['modelo']?></strong><br>
+                <i style="margin:10px" class="fa fa-truck"></i> Tipo de Carroceria: <strong><?=$veiculos['carroceria']?></strong><br>
+                <i style="margin:10px" class="fas fa-tachometer-alt"></i> Quilometragem: <strong><?=$veiculos['km']?>km</strong><br>
+                <i style="margin:10px" class="fas fa-cogs"></i> Tipo de Eixo: <strong><?=$veiculos['eixo']?></strong><br>
+                <textarea name="message" style="border-radius: 5px; width:100%" id="send_msg"><?=$veiculos['observacoes']?></textarea>
+                <form method="POST" class="contact_frm">
+                    <div class="frm-field">
+
+                    </div>
+                    <a href="https://web.whatsapp.com/send?phone=5531995945030&text=Oi, tenho interesse no veículo *<?=$veiculos['nome_veiculo']?>*" target="_blank" class="btn" style="    width: 100%;
+    height: 40px;
+    background-image: linear-gradient(to bottom right, orange, #fdca02);
+    border: none;
+    box-shadow: #e5e5e5 0 0 10px;">Tenho interesse <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                </form>
+            </div>
+        </div>
 
     </div>
-    <!--Wrapper Content End-->
-    <!--Header Banner Content End-->
-    <!-- Js Files Start -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     <script>
-    
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    // Next/previous controls
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slides[slideIndex - 1].style.display = "block";
-    }
+    var myCarousel = document.querySelector('#myCarousel')
+    var carousel = new bootstrap.Carousel(myCarousel, {
+        wrap: false,
+        cycle: true
+    })
     </script>
-
-
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/migrate.js"></script>
-    <script src="js/color-switcher.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/tweetie.js"></script>
-    <script src="js/custom.js"></script>
     <!-- Js Files End -->
 </body>
 

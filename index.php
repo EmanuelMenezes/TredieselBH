@@ -1,9 +1,9 @@
 <?php 
 include("./sistema/database.php");
-//if(!isset($_SERVER['HTTPS']))
- // {
-  // echo"<script> window.location.href='https://".$_SERVER['HTTP_HOST']."' </script>";
-//  }
+if(!isset($_SERVER['HTTPS']))
+ {
+  echo"<script> window.location.href='https://".$_SERVER['HTTP_HOST']."' </script>";
+ }
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ include("./sistema/database.php");
                 <img src="./images/tredvdl.svg" alt="Trediesel e VDL">
             </div>
             <div class="col-lg-3  align-self-center">
-                <a href="./stock.php">
+                <a href="./estoque.php">
                     <button class="btn btn-success">
                         <span>
                             Confira o nosso Estoque
