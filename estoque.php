@@ -1,9 +1,5 @@
 <?php 
 include("./sistema/database.php");
-//if(!isset($_SERVER['HTTPS']))
- // {
-  // echo"<script> window.location.href='https://".$_SERVER['HTTP_HOST']."' </script>";
-//  }
 
 
 ?>
