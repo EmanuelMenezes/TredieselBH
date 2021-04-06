@@ -88,7 +88,7 @@ include("./sistema/database.php");
         </div>
         <div class="row lista">
             <?php 
-            $veiculo = $conn->prepare("SELECT * FROM veiculo /* WHERE status = */");
+            $veiculo = $conn->prepare("SELECT * FROM veiculo WHERE status = ''");
 
             $veiculo->execute();
 

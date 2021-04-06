@@ -115,7 +115,7 @@ if(!isset($_SERVER['HTTPS']))
             <div class="cab-filter owl-carousel">
 
                 <?php 
-$veiculo = $conn->prepare("SELECT * FROM veiculo /* WHERE status = */");
+$veiculo = $conn->prepare("SELECT * FROM veiculo WHERE status = ''");
 $veiculo->execute();
 while($veiculos = $veiculo->fetch(PDO::FETCH_ASSOC)){
 $imagens = $conn->prepare("SELECT * FROM imagens WHERE fk_veiculo = ?");
