@@ -61,11 +61,13 @@ include("./sistema/database.php");
                 <img src="./images/tredvdl.svg" alt="Trediesel e VDL">
             </div>
             <div class="col-lg-3  align-self-center">
-                <button class="btn btn-success">
-                    <span>
-                        Confira o nosso Estoque
-                    </span>
-                </button>
+                <a href="./stock.php">
+                    <button class="btn btn-success">
+                        <span>
+                            Confira o nosso Estoque
+                        </span>
+                    </button>
+                </a>
             </div>
         </div>
     </div>
@@ -180,10 +182,10 @@ $imagem = $imagens->fetch(PDO::FETCH_ASSOC);
     </div>
     <div class="footer bgMyBlack myWhite row">
         <div class="col-md-7 align-self-center">
-            <div class="info-group" >
+            <div class="info-group">
                 <span>Trediesel BH | Parceira VDL na comercialização de veículos seminovos.</span>
-                <a class="btn-footer btn">
-                <span>Nosso Estoque</span>
+                <a href="estoque.php" class="btn-footer btn">
+                    <span>Nosso Estoque</span>
                 </a>
             </div>
         </div>
@@ -244,7 +246,7 @@ $imagem = $imagens->fetch(PDO::FETCH_ASSOC);
     })
     </script>
     <script>
-            $("#formEnviaEmail").submit(function(e) {
+    $("#formEnviaEmail").submit(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
         $.ajax({
             type: "POST",

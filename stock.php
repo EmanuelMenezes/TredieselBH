@@ -129,7 +129,7 @@ include("./sistema/database.php");
         <div class="col-md-7 align-self-center">
             <div class="info-group">
                 <span>Trediesel BH | Parceira VDL na comercialização de veículos seminovos.</span>
-                <a href="index.php" class="btn-footer btn">
+                <a class="btn-footer btn">
                     <span>Voltar ao Início</span>
                 </a>
             </div>
